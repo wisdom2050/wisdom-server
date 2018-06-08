@@ -1,0 +1,40 @@
+{
+  "name": "Wisdom-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "autenticate",
+    "heroku"
+  ],
+  "author": "zubcarz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://bitbucket.org/zubcarz/picadent-backend/issues"
+  },
+  "homepage": "https://bitbucket.org/zubcarz/picadent-backend#readme",
+  "dependencies": {
+    "apidoc": "^0.17.6",
+    "assert": "^1.4.1",
+    "aws-sdk": "^2.183.0",
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.2",
+    "consolidate": "^0.14.5",
+    "cors": "^2.8.4",
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.15.3",
+    "express-static-gzip": "^0.3.2",
+    "mongodb": "^2.2.30",
+    "node-persist": "^2.1.0",
+    "pdfkit": "^0.8.3",
+    "randomstring": "^1.1.5",
+    "validator": "^8.0.0",
+    "voilab-pdf-table": "^0.4.0"
+  }
+}

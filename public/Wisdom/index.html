@@ -1,0 +1,940 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Metas Page details-->
+    <title>Wisdom - Tutorías, Idiomas & Servicios Educativos</title>
+    <meta name="description" content="Brindamos técnicas y hábitos de estudio tanto para nuestros estudiantes como también para las familias, para que puedan tenerun rol más participativo en la educación de sus hijos. Igualmente adoptamos todas las herramientas que la tecnología tiene para ofrecer.">
+    <meta name="author" content="Wisdom">
+    <!-- Mobile Specific Metas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--main style-->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/skins/default.css" data-name="skins">
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <!--google font style-->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!--font-family: 'Metrophobic', sans-serif;-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600italic,600,700italic,700' rel='stylesheet' type='text/css'>
+    <!--font-family: 'Open Sans', sans-serif; -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,400italic,500,300italic,300,100,500italic' rel='stylesheet' type='text/css'>
+    <!--font-family: 'Roboto', sans-serif; -->
+    <!-- font icon css style-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155493-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-108155493-1');
+    </script>
+    <style type="text/css">
+        .pequeña {
+            width: 2px;
+            height: 2px;
+        }
+
+        .modalmask {
+            position: fixed;
+            font-family: Arial, sans-serif;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 99999;
+            opacity: 0;
+            -webkit-transition: opacity 400ms ease-in;
+            -moz-transition: opacity 400ms ease-in;
+            transition: opacity 400ms ease-in;
+            pointer-events: none;
+        }
+
+            .modalmask:target {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+        @media (min-width: 400px) and (max-width: 1020px) {
+            .modalbox {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 1021px) and (max-width: 2020px) {
+            .modalbox {
+                width: 30%;
+            }
+        }
+
+        .modalbox {
+            position: relative;
+            padding: 20px 20px 20px 20px;
+            background: #fff;
+            border-radius: 25px;
+            -webkit-transition: all 500ms ease-in;
+            -moz-transition: all 500ms ease-in;
+            transition: all 500ms ease-in;
+        }
+
+        .movedown {
+            margin: 0 auto;
+        }
+
+        .rotate {
+            margin: 0% auto;
+            -webkit-transform: scale(-5,-5);
+            transform: scale(-5,-5);
+        }
+
+        .resize {
+            margin: 2% auto;
+            width: 0;
+            height: 0;
+        }
+
+        .modalmask:target .movedown {
+            margin: 1% auto;
+        }
+
+        .modalmask:target .rotate {
+            transform: rotate(360deg) scale(1,1);
+            -webkit-transform: rotate(360deg) scale(1,1);
+        }
+
+        .modalmask:target .resize {
+            height: auto;
+        }
+
+
+
+        .close {
+            background: #606061;
+            color: #fff;
+            line-height: 25px;
+            position: absolute;
+            right: 1px;
+            text-align: center;
+            top: 1px;
+            width: 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+            .close:hover {
+                background: #FAAC58;
+                color: #222;
+            }
+    </style>
+</head>
+<body onLoad="load()" onUnload="GUnload()">
+
+    <!--wrapper start-->
+    <div class="wrapper" id="wrapper">
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status"></div>
+        </div>
+        <!--Header start -->
+        <header>
+            <!--Language start -->
+            <div class="container">
+                <div class="row relative">
+                    <ul class="language">
+                        <li>
+                            <a href="#modalnuevo" data-toggle="dropdown">Español</a><i class="fa fa-caret-down"></i>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" class="french">French</a></li>
+                                <li><a href="#" class="italian">Italian</a></li>
+                                <li><a href="#" class="spanish">Spanish</a></li>
+                                <li><a href="#" class="portuguese">Portuguese</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!--/Language end -->
+            <!--menu start-->
+            <div class="menu">
+                <div class="navbar-wrapper">
+                    <div class="container">
+                        <!-- Navbar start -->
+                        <div class="navwrapper">
+                            <div class="navbar navbar-inverse navbar-static-top">
+                                <div class="container">
+                                    <div class="logo"><a href="#"><img src="images/tutoria.png" width="250" /></a> </div>
+                                    <nav class="navArea">
+                                        <div class="navbar-header">
+                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                                        </div>
+                                        <div class="navbar-collapse collapse">
+                                            <ul class="nav navbar-nav" id="navigation">
+
+
+
+                                                <li class="menuItem"><a href="#features">Quienes Somos</a></li>
+                                                <li class="menuItem"><a href="#course">Tutorías</a></li>
+                                                <li class="menuItem"><a href="#teachers">Tutores</a></li>
+                                                <li class="menuItem"><a href="#pricing">Planes & Beneficios</a></li>
+                                                <li class="menuItem"><a href="#testimonial">Testimonios</a></li>
+                                                <li class="menuItem">
+                                                    <a class="ui builder_button default" target="_blank" href="https://api.whatsapp.com/send?phone=573107874468">
+                                                        <img src="video/wha.png" width="40" />
+
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Navbar end -->
+                    </div>
+                </div>
+            </div>
+            <!--menu end-->
+            <!--banner start -->
+            <div class="header_v1">
+                <div class="banner row" id="banner">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadd slides-container" style="height:100%">
+                        <!--background slide show start-->
+                        <div class="slide">
+                            <!--Header text1 start-->
+                            <div class="container hedaer-inner">
+                                <div class="bannerText">
+
+                                    <h3>
+                                        Entrenamos y potenciamos las habilidades de aprendizaje de tus hijos mientras superan
+                                        sus dificultades académicas.
+                                    </h3>
+                                    <a href="#modalnuevo">
+                                        <input style="width:300px;background-color:#36a3e1;border-bottom-color:#36a3e1" type="button" class="button" value="RESERVA TU TUTORIA AHORA ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!--Header text1 end-->
+                            <img src="video/kids-girl-pencil-drawing.jpeg" alt="image01">
+                        </div>
+                        <div class="slide">
+                            <!--Header text2 start-->
+                            <div class="container hedaer-inner">
+                                <div class="bannerText">
+
+                                    <h3>Entrenamos y potenciamos las habilidades de aprendizaje de tus hijos mientras superan
+sus dificultades académicas.</h3>
+                                    <a href="#modalnuevo">
+                                        <input style="width:300px;background-color:#36a3e1;border-bottom-color:#36a3e1" type="button" class="button" value="RESERVA TU TUTORIA AHORA ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!--Header text2 end-->
+                            <img src="video/girl-kids-training-school.jpeg" alt="image02">
+                        </div>
+                        <!--background slide show end-->
+                    </div>
+                </div>
+            </div>
+            <!--banner end -->
+
+
+        </header>
+        <!--Header end -->
+        <!--Membership features start -->
+        <section class="white_section section_gap" id="features">
+            <div class="container">
+                <div class="heading">
+                    <h1><span>QUIENES</span>SOMOS</h1>
+                    <p style="text-align:justify">
+                        Somos un equipo de educadores profesionales con más de 10 años de experiencia en educación personalizada  y apoyo escolar en clases particulares para niños, adolescentes y jóvenes. <br><br>
+                        En el desarrollo de nuestra labor hemos evidenciado las grandes necesidades y problemáticas educativas que están enfrentando nuestros estudiantes. En primer lugar,  el bajo rendimiento escolar al presentar dificultades de aprendizaje en matemáticas, física, química, inglés, francés, español, baja competencia en lectoescritura, entre otros.
+                        En segundo lugar, la necesidad de un acompañamiento idóneo en el desarrollo de tareas, proyectos y buen desempeño en evaluaciones.
+                        <br /><br />Por lo tanto, hemos desarrollado la metodología de aprendizaje WISDOM,  Tutorías, Idiomas y Servicios Educativos, la cual brinda soluciones a las necesidades y problemáticas educativas que están enfrentando nuestros estudiantes, las cuales requieren un apoyo escolar extra, para nivelarse en los temas o materias que presentan dificultad y así mejorar su rendimiento académico.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!--popular courses start-->
+        <section class="grey_section section_gap" id="courses">
+            <div class="container">
+                <div class="heading">
+                    <h1><span>Que</span>Hacemos</h1>
+
+                </div>
+                <ul class="hover_listing row">
+                    <li class="col-xs-12 col-sm-5 col-md-5 col-lg-5 noPadd">
+                        <h3 style="text-align:center">Tutoría de inglés</h3>
+                        <img src="video/NEVER STOP LEARNING.jpg" />
+                        <br /><br />
+                        <h3 style="text-align:center">¿Necesitas que tus hijos aprendan Inglés?</h3><br />
+                        <p style="text-align:justify">
+                            Ser bilingüe es esencial en el mundo globalizado, lo cual hace que el aprendizaje de una lengua extranjera sea vital. El inglés es indudablemente el  lenguaje común que permite a niños, niñas y jóvenes tener mayor acceso al mundo de hoy con su gran conectividad e interculturalidad. Aprender un segundo idioma en la infancia o adolescencia prepara a tu pequeño para vivir muchas experiencias enriquecedoras a lo largo de su vida.
+                            Ofrecemos tutorías de inglés personalizadas en la comodidad de tu casa, las cuales están alineadas con las necesidades específicas de cada estudiante.
+                        </p>
+                        <p style="text-align:justify">
+                            En nuestras tutorías, los estudiantes deben hacer sus tareas, trabajos o proyectos de aula, en un contexto de inmersión en inglés, teniendo en cuenta sus gustos y preferencias, como ver películas, leer libros, jugar y usar recursos tecnológicos entre otras.
+                            En nuestras tutorías nos comunicamos en inglés, escribiendo en inglés y así, nuestros estudiantes practiquen y mejoren sus competencias en diferentes contextos de  su vida real y académica.
+                        </p>
+
+                    </li>
+                    <li class="col-xs-12 col-sm-2 col-md-2 col-lg-2 noPadd">
+
+                    </li>
+                    <li class="col-xs-12 col-sm-5 col-md-5 col-lg-5 noPadd">
+                        <h3 style="text-align:center">Tutoría de matemáticas</h3>
+                        <img src="video/MATEMATICAS.jpg" />
+                        <br /><br />
+                        <h3 style="text-align:center">¿Tus hijos tienen problemas y dificultades en el aprendizaje de las Matemáticas? </h3>
+                        <p style="text-align:justify">
+                            Las experiencias de las matemáticas escolares no es fuente de satisfacción para muchos niños y adolescentes. Algunos se sienten frustrados al no poder solucionar los problemas de esta asignatura. Nuestros tutores de matemáticas son apasionados por la enseñanza y siempre están en la búsqueda de estrategias innovadoras y didácticas en nuestras tutorías, para que nuestros estudiantes puedan superar estas dificultades con mayor facilidad.
+                            Al implementar el coaching educativo en las tutorías de matemáticas, nuestros tutores establecen un plan personalizado, logrando  tener  un mayor conocimiento de los procesos internos de aprendizaje de los niños o adolescentes, asegurando que cada principio o concepto ha sido completamente aprendido.
+                        </p>
+                        <p style="text-align:justify">Nuestros niños y adolescentes dejan su rol pasivo de aprendizaje en el aula y se convierten en  descubridores del mundo de las matemáticas, guiados por nuestros tutores. En Wisdom, las matemáticas son vivenciales, se descubren con el movimiento, con la manipulación de objetos, formas geométricas, elementos de la naturaleza y luego se aprenden los principios en el papel a través del desarrollo de problemas abstraídos de su contexto real o en el desarrollo de sus deberes escolares, talleres o guías de matemáticas a presentar en sus colegios.</p>
+                    </li>
+                    <li class="col-xs-12 col-sm-3 col-md-3 col-lg-3 noPadd">
+
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6 noPadd">
+                        <center>  <img src="video/Escalera_infografia_wisdom_PC.png" /></center>
+                    </li>
+                    <li class="col-xs-12 col-sm-3 col-md-3 col-lg-3 noPadd">
+
+                    </li>
+                </ul>
+
+            </div>
+        </section>
+        <!--/popular courses end-->
+        <!--popup video start -->
+        <section class="white_section section_gap" id="como">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <div class="video_preview">
+
+                            <a target="_blank" href="video/coaching.png">
+                                <img src="video/coaching.png" alt="">
+                            </a>
+                            <a target="_blank" href="video/Tareas_infografia_wisdom_PC.png">
+                                <img src="video/Tareas_infografia_wisdom_PC.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 watch_text">
+                        <h2>¿Cómo lo hacemos?</h2>
+                        <p style="text-align:justify">Teniendo metodologías diseñadas, adaptadas y ejecutadas en nuestras tutorías, que van alineadas con las necesidades puntuales de nuestros estudiantes, sus familias y colegios. </p>
+                        <p style="text-align:justify">Nuestro know how ("saber cómo o saber hacer"); está fundamentado en la aplicación de la pedagogía del aprendizaje basado en tareas, junto con  la implementación de herramientas significativas del coaching educativo, para apoyar a nuestros estudiantes en las dificultades de aprendizaje que pueden presentar en algún momento de su vida escolar.</p>
+                        <p style="text-align:justify">No nos limitamos únicamente a enseñar un tema o idioma en particular, aprovechamos esa falencia como vehículo para incorporar el coaching académico en nuestras tutorías. Esta herramienta nos permite ayudar a tu hijo a desarrollar sus habilidades académicas y personales; para que logren ser más efectivos en sus estudios actuales y futuros.</p>
+                        <p style="text-align:justify">En Wisdom creemos que es importante evolucionar constantemente nuestros procesos educativos y así adaptarnos a las necesidades y retos de la vida moderna, por esto involucramos las nuevas tecnologías de la información y comunicación como aliadas en nuestros sistemas,  en sincronía con los diferentes modelos pedagógicos existentes.</p>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--popup video end -->
+        <!--/Membership features end -->
+        <!--Available course start-->
+        <section class="grey_section section_gap" id="course">
+            <div class="container">
+                <div class="heading">
+                    <h1><span>NUESTRAS</span>  METODOLOGÍAS</h1>
+                   
+                </div>
+                <div class="row">
+                    <!-- Vertical tabs start-->
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <ul class="nav nav-tabs custom-nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a style="color:#fff" href="#graphicesigning" aria-controls="graphicesigning" role="tab" data-toggle="tab">Coaching educativo</a></li>
+                            <li role="presentation"><a href="#onlinemarketing" aria-controls="onlinemarketing" role="tab" data-toggle="tab">Beneficios del coach</a></li>
+                            <li role="presentation"><a style="font-size:16px" href="#brandstrategy" aria-controls="brandstrategy" role="tab" data-toggle="tab">Aprendizaje basado en tareas</a></li>
+                            <li role="presentation"><a href="#generalmedicine" aria-controls="generalmedicine" role="tab" data-toggle="tab">Ventajas</a></li>
+                            <li role="presentation"><a href="#basicphotography" aria-controls="basicphotography" role="tab" data-toggle="tab">Adaptabilidad</a></li>
+                        </ul>
+                    </div>
+                    <!-- Vertical tabs end-->
+                    <!-- Vertical tabs content start-->
+                    <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 tab_text">
+                        <div class="tab-content">
+                            <!-- Vertical tabs content01 start-->
+                            <div role="tabpanel" class="tab-pane active" id="graphicesigning">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                                        <a href="video/HABILIDADES.JPG" target="_blank"><img src="video/HABILIDADES.JPG" alt=""></a>
+
+                                    </div>
+                                    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+                                        <p style="text-align:justify">
+                                            Es un modelo de educación innovador, una forma diferente de entender el concepto de aprendizaje donde se aplican las bases del coaching, para liberar el potencial de nuestros estudiantes y así incrementar su desempeño al máximo, ayudándolos a  aprender a aprender.<br>
+
+                                        </p>
+                                        <p style="text-align:justify">El coaching, en general,  es un método que consiste en acompañar, instruir o entrenar a una persona para alcanzar unos objetivos, usando sus propios recursos y habilidades fuertemente apoyados en la motivación, responsabilidad y creatividad</p>
+                                        <p style="text-align:justify">Implementamos el coaching académico en particular, en el diseño de nuestra metodología de enseñanza para que nuestros estudiantes hagan algo más que solucionar una dificultad académica específica o acumular información. Ya que de la mano de nuestros profesores y las tutorías, se llevan a cabo cambios de profundidad  y transformaciones que permiten dar a nuestros estudiantes las capacidades para continuar creciendo y tomar un papel proactivo y responsable en sus resultados académicos.</p>
+
+                                    </div>
+                                    </div>
+                                
+                            </div>
+                            <!-- Vertical tabs content01 end-->
+                            <!-- Vertical tabs content02 start-->
+                            <div role="tabpanel" class="tab-pane fade" id="onlinemarketing">
+                                <div class="row">
+                                   
+                                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+
+                                        <a href="video/Beneficios_infografiawisdom_PC_horizontal.png" target="_blank"><img src="video/Beneficios_infografiawisdom_PC_horizontal.png" alt=""></a>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+
+
+                                        <h3>¿Porque es una herramienta idónea en el aprendizaje de tus hijos?</h3>
+
+                                        <p style="text-align:justify">
+                                            Porque  profundiza y busca mejorar en nuestros estudiantes aspectos tan importantes como:
+                                        </p>
+                                        <ul>
+                                            <li>Optimizar gestión del tiempo de estudio</li>
+                                            <li>Aplicar técnicas de estudio</li>
+                                            <li>Organización y planificación de trabajos, proyectos, tareas y exámenes.</li>
+                                            <li>Generar autonomía y responsabilidad en el cumplimiento de las metas</li>
+                                        </ul>
+                                        <p style="text-align:justify">El coaching académico es adaptable a cualquier clase de material escolar, de las asignaturas o temas que requieren refuerzo y con ellas se establece un plan de trabajo y objetivos</p>
+                                        <p style="text-align:justify">Al terminar la tutoría y el coaching académico, el tutor y el estudiante programan en conjunto que es lo que se debe hacer en casa antes de la próxima sesión y con qué recursos se cuenta para tal fin. Esto requiere la coordinación y comunicación con las familias para poder informar cómo se está desarrollando el proceso.Asimismo se exploran además aspectos personales tan importantes como la motivación, autoestima y actitudes ante los estudios.</p>
+
+
+                                    </div>
+                                </div>
+                               
+                                </div>
+                           
+                            <!-- Vertical tabs content02 end-->
+                            <!-- Vertical tabs content03 start-->
+                            <div role="tabpanel" class="tab-pane fade" id="brandstrategy">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5"><img src="video/NIÑOS COLEGIO.jpg" alt=""></div>
+                                    <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                        <h3>¿Porque es un método ideal para aplicar en nuestras tutorías?</h3>
+                                        <p style="text-align:justify">Este modelo aboga por cambiar el concepto tradicional de la enseñanza basado en el tutor o profesor, a que el estudiante sea el protagonista de su aprendizaje. El rol del profesor es el de acompañar y orientar el trabajo de la tutoría, preguntar e intercambiar ideas, para conducir a la cooperación activa con el estudiante, movilizando su entusiasmo y así propiciar su creatividad y el desarrollo de habilidades prácticas.  </p>
+                                        <p style="text-align:justify">Este método es un complemento ideal  para cursos presenciales, pues su objetivo es lograr un proceso de enseñanza-aprendizaje en el cual sea posible prestar atención a las individualidades, lograr la motivación hacia los temas tratados por la asignatura y la consecución exitosa de un objetivo académico.</p>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Vertical tabs content03 end-->
+                            <!-- Vertical tabs content04 start-->
+                            <div role="tabpanel" class="tab-pane fade" id="generalmedicine">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5"><img src="video/TUTOR Y ADOLESCENTE.jpg" alt=""></div>
+                                    <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                        <p style="text-align:justify">Promover la organización de las tutorías en función de un conjunto de tareas o una tarea específica, para que el estudiante tenga la posibilidad de aprender no solo por medio de la transmisión de conocimiento por parte del tutor, quien va a ser un facilitador en el proceso,  sino también que el mismo tenga una posición activa en la construcción de sus conocimientos.</p>
+                                        <p style="text-align:justify"> Por lo tanto el estudiante va adquiriendo responsabilidad con su aprendizaje progresivamente, lo cual facilita su motivación.</p>
+
+                                        </div>
+                                </div>
+                            </div>
+                            <!-- Vertical tabs content04 end-->
+                            <!-- Vertical tabs content05 start-->
+                            <div role="tabpanel" class="tab-pane fade" id="basicphotography">
+                                <div class="row">
+                                   
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <img src="video/NIÑO ICONOS.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Vertical tabs content01 start-->
+                        </div>
+                    </div>
+                    <!-- Vertical tabs content end-->
+                </div>
+            </div>
+        </section>
+        <!--/Available course end-->
+        <!-- Teachers details start-->
+        <section class="grey_section section_gap" id="teachers">
+            <div class="container">
+                <div class="heading">
+                    <h1><span>Nuestros  </span>Tutores</h1>
+
+                </div>
+                <p>Nuestro equipo está conformado por un grupo selecto de profesores apasionados por la educación de nuestros niños, adolescentes y jóvenes. Son tutores innovadores,  que  motivan y acompañan a tus hijos a superar sus dificultades de aprendizaje que frenan su rendimiento escolar</p>
+                <p>Nuestros tutores están capacitados y entrenados en coaching educativo, lo que les permite orientar a tus hijos para que liberen todo su potencial; ayudándoles a aprender a aprender, y  tomar un rol proactivo y responsable en sus resultados académicos.</p>
+                <p>El papel del tutor resulta fundamental para el desarrollo de la metodología de las tutorías pues es el facilitador del aprendizaje hacia la resolución de los problemas, en donde los estudiantes desarrollan su pensamiento crítico, siendo más conscientes acerca de su proceso de aprendizaje, y así ampliar su visión del mundo.</p>
+                <p>Tenemos tutores para Clases a domicilio en áreas como matemáticas, inglés, español, química, acompañamiento de tareas, proyectos, preparación de exámenes y refuerzo escolar. </p>
+                <p>Ofrecemos un espacio significativo de aprendizaje donde padres, estudiantes y tutores  se vinculan, conformando una Comunidad de Aprendizaje Wisdom, con un interés común: el éxito académico de nuestros estudiantes o hijos.</p>
+                <p>Realizamos un proceso serio de selección donde verificamos idoneidad y  antecedentes de nuestros postulantes para tu seguridad y la de tu familia</p>
+            </div>
+        </section>
+
+        <!-- Teachers details end-->
+        <!--Pricing Tables start-->
+        <section class="pricingtables section_gap" id="pricing">
+            <div class="container">
+                <div class="heading">
+                    <h1><span>Planes y </span>Beneficios</h1>
+                    <p style="text-align:justify">
+                        Nuestros estudiantes no solo se favorecen al superar una dificultad académica, sino que al recibir  y al aprender a usar efectivamente todas las herramientas personales combinadas con buenas prácticas de estudio, ellos tienen lo que se requiere para que puedan obtener su mejor rendimiento académico.  Así, las familias pueden tener la tranquilidad de que sus hijos serán estudiantes autónomos y responsables que podrán aplicar lo aprendido por el resto de sus vidas.<br>
+
+                    </p>
+
+                    <p style="text-align:justify">Nuestra hora cátedra es de 60 minutos, por lo que si pagas por una hora $55.000, eso es lo que obtienes.  Adicional tienes la opción de escoger entre tomar una sola tutoría de mínimo 1 hora y 30 minutos, o puedes escoger entre nuestros planes:</p>
+                </div>
+                <div class="row">
+                    <ul class="pricing-boxes three">
+                        <li>
+                            <div class="plan-name">
+                                <h2>12 HORAS AL MES</h2>
+                                <h4>2 SESIONES DE  1 HORA Y MEDIA</h4>
+                            </div>
+                            <div class="plan-price">
+                                <h4>$600.000</h4>
+                            </div>
+                            <div class="plan-features">
+                                <ul>
+                                    <li>    12 horas</li>
+                                    <li>Valor hora $ 50.000</li>
+
+                                </ul>
+                                <a class="btn btn-primary" href="#modalnuevo">Solicitar ahora</a>
+                            </div>
+                        </li>
+                        <li class="best-plan">
+                            <div class="plan-name color">
+                                <h2>18 HORAS AL MES</h2>
+                                <h4>3 SESIONES DE  1 HORA Y MEDIA</h4>
+                            </div>
+                            <div class="plan-price color">
+                                <h4>$810.000</h4>
+                            </div>
+                            <div class="plan-features">
+                                <ul>
+                                    <li>18 horas</li>
+                                    <li>Valor hora $45.000</li>
+                                </ul>
+                                <a class="btn btn-primary" href="#modalnuevo">Solicitar ahora</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="plan-name">
+                                <h2>24 HORAS AL MES</h2>
+                                <h4>3 SESIONES DE 2 HORAS</h4>
+                            </div>
+                            <div class="plan-price last-child">
+                                <h4>$960.000</h4>
+                            </div>
+                            <div class="plan-features">
+                                <ul>
+                                    <li>24 horas</li>
+                                    <li>Valor hora $40.000</li>
+                                </ul>
+                                <a class="btn btn-primary" href="#modalnuevo">Solicitar ahora</a>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                        <p style="text-align:justify;color:#fff">
+                            Si ninguno de nuestros planes se acomoda a tus necesidades, contáctanos y te ayudamos a armar el plan a tu medida.
+                        </p>
+                      
+                        <h2 style="color:#fff">
+                            Condiciones Servicios Educativos
+
+                        </h2>
+                        <ul style="color:#fff">
+                            <li>Pago anticipado según las horas programadas</li>
+                            <li>Medios de pago: Débito en línea por PSE, transferencias o consignación bancaria</li>
+                            <li>
+                                Las tutorías que se cancelen deberán reprogramarse dentro del mismo mes para el
+                                que estaban programadas. De no ser así la clase caduca y no podrá reprogramarse
+                            </li>
+                            <li>Siempre debe haber un adulto responsable en casa, para que el tutor ingrese y dicte la tutoría</li>
+                        </ul>
+                    </div>
+            </div>
+        </section>
+        <!--Pricing Tables end -->
+        <!--Happy Students star-->
+        <section class="white_section section_gap" id="testimonial" style="background-color:#eee">
+            <div class="container">
+                <div class="heading">
+                    <h1><span>Familias </span>felices</h1>
+
+                </div>
+                <div class="imageSlide">
+                    <div class="imageBox" style="background-color:transparent"><img style="border-radius:10%" src="images/ANDREA ROZO.jpg" width="98" height="98" alt="Student"></div>
+                    <div class="imageBox" style="background-color:transparent"><img style="border-radius:10%" src="images/JUANFERNANDO BAZZANI.jpg" width="98" height="98" alt="Student"></div>
+                    <div class="imageBox" style="background-color:transparent"><img style="border-radius:10%" src="images/ROCIO ACOSTA.jpg" width="98" height="98" alt="Student"></div>
+
+                </div>
+                <div class="footerTopContent">
+                    
+                    <ul class="slides testimonialText list-unstyled">
+                        <li>
+                            <h3>Acompañamiento en Tareas</h3>
+                            <p class="font-openBold">“Este apoyo ha sido una inmensa ayuda para Pablo e incluso para mí,  por mi trabajo y  falta de tiempo, no siempre lo podía ayudar en sus tareas. El empezó a desarrollar una metodología ordenada y ahora maneja mejor su tiempo de estudio”</p>
+                           
+                            <h3 class="uppercase">Andrea Rozo</h3>
+                        </li>
+                        <li>
+                            <h3>Tutorías  de Inglés</h3>
+                            <p class="font-openBold">“Estas tutorías son excelentes, la metodología, la organización y la puntualidad. Ayudaron muchísimo  a Diego a organizarse en sus estudios y a mejorar su nivel”.</p>
+
+                           
+                            <h3 class="uppercase">Juan Fernando Bazzani</h3>
+                        </li>
+                        <li>
+                            <h3 class="">Tutorías de Español</h3>
+                            <p class="font-openBold">“La tutora fue una gran guía en el proceso con Pablo, pues se le dificultaba hacer las tareas en las que necesitaba redacción de textos, el objetivo se cumplió pues ya se desenvuelve mucho mejor y aprendió técnicas para escribir y plantear sus ideas de forma más fácil.”</p>
+                           
+                            <h3 class="uppercase">Rocío Acosta</h3>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--/Happy Students end-->
+        <!--Newsletter section star -->
+        <section class="yellow_section section_gap" id="blog" style="background-color:#fff">
+            <div class="container">
+                <div class="heading">
+                    <h1><span>Con el  </span>apoyo de</h1>
+
+                </div>
+                <div class="row">
+                  
+                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                        <img src="video/mintic.png" width="100" />
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                        <img src="video/codalctec.png" width="130"  />
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                        <img src="video/uniminuto.png" />
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                        <img src="video/vivedigita.png" style="margin-top:22px" />
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                        <img src="video/apps.png" style="margin-top:22px" />
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                        <img src="video/gobierno.jpg" style="margin-top:22px" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--/Newsletter section end-->
+        <!--have Question start -->
+        <section class="grey_section section_gap" style="display:none" id="contact"></section>
+        <!--have Question end -->
+        <!--Bottom Four Column start-->
+        <section class="blue_section section_gap">
+            <div class="container">
+                <div class="row bottomfourcol">
+                    <!-- Footer About us start-->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 bottomAbout">
+                        <h5 class="heading">Contacto</h5>
+                        
+                        <ul style="color:#fff">
+                            <li>Cel: 310 7874468</li>
+                            <li>Email: info@wisdom.com.co</li>
+                            <li>Bogotá,Colombia</li>
+                          
+                        </ul>
+                        <h5>Redes sociales</h5>
+                        <div class="socialshare"> <a href="#"><i class="fa fa-twitter"></i></a> <a target="_blank" href="https://www.facebook.com/WisdomTutorias/?notif_id=1508795578129486&notif_t=page_fan"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-google"></i></a> <a href="#"><i class="fa fa-vimeo-square"></i></a> <a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-youtube"></i></a> </div>
+                    </div>
+                    <!-- Footer About us end-->
+                    <!-- Footer Recent news start-->
+                   
+                    <!-- Footer Recent news end-->
+                    <!-- Footer How it works start-->
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h5 class="heading">Trabaja con nosotros</h5>
+                        <p style="text-align:justify">
+                            Agradecemos tu interés.<br /><br />
+                            Eres una persona íntegra, puntual y te apasiona la enseñanza? Te gusta trabajar con niños
+                            y jóvenes? Tienes los conocimientos, la experiencia, la disposición para transportarte y la
+                            disponibilidad de tiempo en las tardes para dar las clases a domicilio?<br /><br />
+                            Si es así, siempre estamos en la búsqueda de nuevos talentos que se unan a nuestro
+                            equipo.<br />
+                            Envíanos tu hoja de vida a: recursoshumanos@wisdo.com.co y te contactaremos!
+                        </p>
+                    </div>
+                    <!-- Footer How it works end-->
+                    <!-- Footer we accept start-->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contactInfo">
+                        <h5 class="heading">Medios de pago</h5>
+                       
+                        <ul>
+                            <li><img src="images/paypal.gif" width="31" height="22" alt=""></li>
+                            <li><img src="images/amazon.gif" width="31" height="22" alt=""></li>
+                            <li><img src="images/visa.gif" width="31" height="22" alt=""></li>
+                            <li><img src="images/master.gif" width="31" height="22" alt=""></li>
+                            <li><img src="images/discover.gif" width="31" height="22" alt=""></li>
+                        </ul>
+                    </div>
+                    <!-- Footer we accept end-->
+                </div>
+            </div>
+        </section>
+        <!--/Bottom Four Column end -->
+        <!--Footer start-->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="pull-left">
+                        <p>&copy; 2017  Wisdom. All Rights Reserved</p>
+                    </div>
+                    <div class="pull-right"><a class="gototop smooth" href="#wrapper">Go To Top<i class="fa fa-chevron-up"></i></a></div>
+                </div>
+            </div>
+        </footer>
+        <!--Footer end -->
+    </div>
+
+
+    <div id="modalnuevo" class="modalmask" style="overflow: scroll;">
+
+        <div class="modalbox movedown" style="height: 620px;">
+
+            <a href="#close" title="Close" class="close">X</a>
+            <center>
+                <!--Paste this code on the bottom of your page-->
+                <script type="text/javascript" id="script_1e2e1cgSeh891HI0HXe3f526-3d">
+                    var _egoiLoaderMulti = _egoiLoaderMulti || [];
+                    var _egoiLoaderValues = [];
+                    _egoiLoaderValues.push(["_setForm", "1e2e1cgSeh891HI0HXe3f526-3d"]);
+                    _egoiLoaderValues.push(["_setResource", "9adefd01c03f95fdeeb42c860f980724"]);
+                    _egoiLoaderValues.push(["_setUrl", "http://www.36.dtikm5.com/"]);
+                    _egoiLoaderValues.push(["_setType", "normal"]);
+                    _egoiLoaderValues.push(["_setWidth", "350"]);
+                    _egoiLoaderValues.push(["_setHeight", "594"]);
+                    _egoiLoaderMulti.push(_egoiLoaderValues);
+                    (function () {
+                        var egoi = document.createElement("script"); egoi.type = "text/javascript"; egoi.async = true;
+                        egoi.src = "http://www.36.dtikm5.com/include/javascript/egoi.js";
+                        var e = document.getElementById("script_1e2e1cgSeh891HI0HXe3f526-3d"); e.parentNode.insertBefore(egoi, e);
+                    })();
+                </script>
+                <!--Paste this code where you want the form to appear-->
+                <div id="a1e2e1cgSeh891HI0HXe3f526-3d"></div>
+            </center>
+        </div>
+    </div>
+
+                <!--wrapper end-->
+                <!--modernizr js-->
+                <script type="text/javascript" src="js/modernizr.custom.26633.js"></script>
+                <!--jquary min js-->
+                <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+
+                <!--for placeholder jquery-->
+                <script type="text/javascript" src="js/jquery.placeholder.js"></script>
+
+                <!--for header jquery-->
+                <script type="text/javascript" src="js/stickUp.js"></script>
+                <script src="js/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
+                <script type="text/javascript">
+                    "use strict";
+                    //<![CDATA[
+                    $('.header_v1 #banner').superslides({
+                        animation: 'fade',
+                        play: 8000
+                    });
+                    //]]>
+                </script>
+
+                <!--for portfolio jquery-->
+                <script src="js/jquery.isotope.js" type="text/javascript"></script>
+                <link type="text/css" rel="stylesheet" property="stylesheet" id="theme" href="css/jquery-ui-1.8.16.custom.css">
+                <link type="text/css" rel="stylesheet" property="stylesheet" href="css/lightbox.min.css">
+                <script type="text/javascript" src="js/jquery.ui.widget.min.js"></script>
+                <script type="text/javascript" src="js/jquery.ui.rlightbox.js"></script>
+
+                <!--for video lightbox -->
+                <link rel="stylesheet" property="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+                <script src="js/jquery.prettyPhoto.js" type="text/javascript"></script>
+
+                <!--contact form js-->
+                <script type="text/javascript" src="js/jquery.contact.js"></script>
+                <!--Newsletter js-->
+                <script type="text/javascript" src="js/jquery.subscribe.js"></script>
+                <script src="http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=AIzaSyBk25ll7tAxozKBByuxb9SzSRqojDxnArk" type="text/javascript"></script>
+                <script type="text/javascript">
+                    "use strict";
+                    //<![CDATA[
+                    var map;
+
+                    function load() {
+                        if (GBrowserIsCompatible()) {
+                            map = new GMap2(document.getElementById("map"));
+                            map.setCenter(new GLatLng(4.632813, -74.130603), 13);
+                            document.getElementById("map").checked = true;
+                            toggleZoom(false);
+                        }
+                    }
+
+                    function toggleZoom(isChecked) {
+                        if (isChecked) {
+                            map.enableScrollWheelZoom();
+                        } else {
+                            map.disableScrollWheelZoom();
+                        }
+                    }
+
+                    //]]>
+                </script>
+
+                <!--about jquery-->
+                <script src="js/jquery.classyloader.min.js"></script>
+                <script defer src="js/jquery.flexslider.js"></script>
+                <script src="js/jquery.easing.js"></script>
+                <script src="js/jquery.mousewheel.js"></script>
+                <script defer src="js/slideroption.js"></script>
+
+                <!--Home Testimonial -->
+                <script>
+
+
+                </script>
+
+                <!--for coundown jquary-->
+                <script type="text/javascript" src="js/jquery.countTo.js"></script>
+                <script type="text/javascript">
+        jQuery(function ($) {
+            $(document).ready(function () {
+                //enabling stickUp on the '.navbar-wrapper' class
+                $('.navbar-wrapper').stickUp({
+                    parts: {
+                        0: 'banner',
+                        1: 'features',
+                        2: 'courses',
+                        3: 'teachers',
+                        4: 'pricing',
+                        5: 'testimonial',
+                        6: 'blog',
+                        7: 'contact'
+                    },
+                    itemClass: 'menuItem',
+                    itemHover: 'active',
+                    topMargin: 'auto'
+                });
+
+                // run rlightbox
+                $(".lb").rlightbox();
+                $(".lb_title-overwritten").rlightbox({ overwriteTitle: true });
+
+                $('.flexslider').flexslider({
+                    animation: "fade",
+                    animationLoop: true,
+                    slideshow: true,
+                    pauseOnAction: false,
+                    slideshowSpeed: 7000,
+                    controlNav: true,
+                    start: function (slider) {
+                        $('body').removeClass('loading');
+                    }
+                });
+
+                var activeImage;
+
+                var getmaxHeight = 0;
+                $(".testimonialText li").each(function (index, element) {
+                    if ($(this).height() > getmaxHeight) {
+                        getmaxHeight = $(this).height();
+                        $(".footerTopContent").height(getmaxHeight);
+                    }
+                });
+
+                $(".testimonialText li").fadeTo("fast", 0);
+                $(".testimonialText li:first").fadeTo("fast", 1);
+                $(".imageSlide .imageBox").removeClass("activeImage");
+                $(".imageSlide .imageBox:first").addClass("activeImage");
+                $(".imageSlide .imageBox").mouseenter(function () {
+                    if (!$(this).hasClass("activeImage")) {
+                        var gi = $(this).index();
+                        //console.log(gi);
+                        $(".imageSlide .imageBox").removeClass("activeImage");
+                        $(this).addClass("activeImage");
+                        $(".testimonialText li").fadeTo("fast", 0);
+                        $(".testimonialText li:eq(" + gi + ")").fadeTo("fast", 1);
+                    }
+                })
+
+                // Video lightbox
+                $("a[data-rel^='prettyPhoto']").prettyPhoto();
+
+                // for client work jquary
+                var windowBottom = $(window).height() + 0;
+                var index = 0;
+                $(document).scroll(function () {
+                    divposition = parseInt($('.factabout').offset().top), 10;
+                    divsrollpos = parseInt($(window).scrollTop()), 10;
+                    ctop = parseInt(divposition - divsrollpos), 10;
+                    if (ctop < Math.round(windowBottom / 2)) {
+                        if (index == 0) {
+
+                            $('.timer').each(count);
+
+                        }
+                        index++;
+                    }
+                });
+
+
+
+                function count(options) {
+                    var $this = $(this);
+                    options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+                    $this.countTo(options);
+                }
+
+
+            });
+
+        });
+                </script>
+                <!--Start of Tawk.to Script-->
+                <script type="text/javascript">
+                    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+                    (function () {
+                        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                        s1.async = true;
+                        s1.src = 'https://embed.tawk.to/59efaa45c28eca75e4627f6f/default';
+                        s1.charset = 'UTF-8';
+                        s1.setAttribute('crossorigin', '*');
+                        s0.parentNode.insertBefore(s1, s0);
+                    })();
+                </script>
+                <!--End of Tawk.to Script-->
+                <!--End of Tawk.to Script-->
+                <!--End of Tawk.to Script-->
+                <!--for theme custom jquery-->
+                <script src="js/custom.js"></script>
+</body>
+</html>
