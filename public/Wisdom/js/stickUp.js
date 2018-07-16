@@ -14,6 +14,7 @@ function($) {
 		var stickyMarginB = 0;
 		var currentMarginT = 0;
 		var topMargin = 0;
+		var vartop =0;
 		$(window).scroll(function(event){
    			var st = $(this).scrollTop();
    			if (st > lastScrollTop){
