@@ -6,20 +6,15 @@ var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 var app = express();
 var assert= require('assert');
-var randomstring = require("randomstring");;
+var randomstring = require("randomstring");
+var cors = require('cors');
 
 app.engine('html', engines.mustache);
 app.set('view engine', 'html');
 app.use(express.static("public"));
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(compression());
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+app.use(cors())
 
 app.get('/test', function(request, response){
     response.send("Hola wisdom this is the first one service !!You are welcome!!");
