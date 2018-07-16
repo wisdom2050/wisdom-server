@@ -76,6 +76,7 @@ function postTest (){
                         "async": true,
                         "crossDomain": true,
                         "url": "https://evening-headland-97724.herokuapp.com/wisdom/register",
+                        //"url": "http://localhost:3000/wisdom/register",
                         "method": "POST",
                         "headers": {
                             "content-type": "application/json",

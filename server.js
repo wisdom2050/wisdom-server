@@ -1,20 +1,23 @@
 var express = require('express');
-var compression = require('compression');
 var engines = require('consolidate');
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
-var ObjectID = require('mongodb').ObjectID;
 var app = express();
 var assert= require('assert');
-var randomstring = require("randomstring");
-var cors = require('cors');
 
+// Service
 app.engine('html', engines.mustache);
 app.set('view engine', 'html');
 app.use(express.static("public"));
-app.use(compression());
+app.use(bodyParser.json());
 
-app.use(cors())
+
+app.get('/', function (request,response) {
+    response.header('Access-Control-Allow-Origin', '*');
+    response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+    response.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+    response.redirect("/apidoc/");
+});
 
 app.get('/test', function(request, response){
     response.send("Hola wisdom this is the first one service !!You are welcome!!");
@@ -26,6 +29,9 @@ MongoClient.connect(
         assert.equal(error, null);
         console.log("Success Connection to mongo db");
         app.post('/wisdom/register', function(request, response){
+            response.header('Access-Control-Allow-Origin', '*');
+            response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+            response.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
             var data = request.body;
             db.collection('users').insertOne(data, function (error, responseInsert) {
                 if (error != null) {
@@ -38,9 +44,6 @@ MongoClient.connect(
                             "meta": {
                                 "code": 201,
                                 "msg": "User created"
-                            },
-                            "data":{
-                                "_id" : responseInsert.insertedId
                             }
                         };
                     response.status(201).send(responseMessage);
