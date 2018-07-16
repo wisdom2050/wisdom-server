@@ -15,22 +15,18 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(compression());
 
-//CORS middleware
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*')
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-};
-
-app.use(allowCrossDomain);
+});
 
 app.get('/test', function(request, response){
     response.send("Hola wisdom this is the first one service !!You are welcome!!");
 });
 
 MongoClient.connect(
-    process.env.MONGODB_URI,
+    "mongodb://heroku_1kp0t4cl:sh9koecdrat54rt0uihcg1a81e@ds011268.mlab.com:11268/heroku_1kp0t4cl",
     function(error, db) {
         assert.equal(error, null);
         console.log("Success Connection to mongo db");

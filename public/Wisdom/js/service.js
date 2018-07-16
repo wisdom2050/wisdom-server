@@ -62,7 +62,7 @@ function postTest (){
     User.location = markerCoordinates;
 
     info.startDate = $('#date').val();
-    info.typeTutoria = $('#sel1').val();
+    info.typeTutorial = $('#sel1').val();
     info.state = "interesting";
     info.plan = plan;
     info.User = User;
@@ -80,7 +80,7 @@ function postTest (){
                         "headers": {
                             "content-type": "application/json",
                             "cache-control": "no-cache",
-                            "postman-token": "21df20f7-7278-12a7-2719-7a3e1145598a"
+                            "postman-token": "6291e849-80f2-eadb-7ef7-29f79106e5fb"
                         },
                         "processData": false,
                         "data": JSON.stringify(info),
