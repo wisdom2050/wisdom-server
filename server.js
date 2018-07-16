@@ -34,7 +34,7 @@ MongoClient.connect(
     function(error, db) {
         assert.equal(error, null);
         console.log("Success Connection to mongo db");
-        app.post('/test', function(request, response){
+        app.post('/wisdom/register', function(request, response){
             var data = request.body;
             db.collection('users').insertOne(data, function (error, responseInsert) {
                 if (error != null) {
