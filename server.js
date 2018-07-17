@@ -1,11 +1,15 @@
 var express = require('express');
-var engines = require('consolidate');
 var MongoClient = require('mongodb').MongoClient;
-var app = express();
 var assert= require('assert');
+var engines = require('consolidate');
+var bodyParser = require('body-parser');
+
+var app = express();
 app.engine('html', engines.mustache);
-app.use(express.static("public"));
 app.set('view engine', 'html');
+app.use(express.static("public"));
+app.use(bodyParser.json());
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
     res.header("Access-Control-Allow-Credentials", true);
