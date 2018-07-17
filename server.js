@@ -12,13 +12,6 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 
 
-app.get('/', function (request,response) {
-    response.header('Access-Control-Allow-Origin', 'http://www.wisdom.com.co');
-    response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
-    response.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-    response.redirect("/apidoc/");
-});
-
 app.get('/test', function(request, response){
     response.send("Hola wisdom this is the first one service !!You are welcome!!");
 });
@@ -29,10 +22,6 @@ MongoClient.connect(
         assert.equal(error, null);
         console.log("Success Connection to mongo db");
         app.post('/wisdom/register', function(request, response){
-            
-            response.header('Access-Control-Allow-Origin', 'http://www.wisdom.com.co');
-            response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
-            response.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
             var data = request.body;
             db.collection('users').insertOne(data, function (error, responseInsert) {
                 if (error != null) {
@@ -60,6 +49,25 @@ app.get('/', function (request,response) {
     response.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
     response.redirect("/Wisdom/");
+});
+
+app.use(function (error, request, response, next) {
+
+    console.log(error);
+    if(error != null){
+        response.status(error.status).send(errorMessage(error.message, error.status));
+    }
+
+    if ('OPTIONS' == request.method) {
+        response.header('Access-Control-Allow-Origin', '*');
+        response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+        response.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+        response.send(200);
+    }
+    else {
+        response.sendStatus(404);
+        next();
+    }
 });
 
 console.log("Preparing to start server");

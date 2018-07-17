@@ -81,7 +81,7 @@ function postTest (){
                         "headers": {
                             "content-type": "application/json",
                             "cache-control": "no-cache",
-                            "postman-token": "6291e849-80f2-eadb-7ef7-29f79106e5fb"
+                            'Access-Control-Allow-Origin': '*'
                         },
                         "processData": false,
                         "data": JSON.stringify(info),
