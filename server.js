@@ -11,6 +11,26 @@ app.set('view engine', 'html');
 app.use(express.static("public"));
 app.use(bodyParser.json());
 
+app.use(function (error, request, response, next) {
+
+    console.log(error);
+    if(error != null){
+        response.status(error.status).send(errorMessage(error.message, error.status));
+    }
+
+    if ('OPTIONS' == request.method) {
+        // response.header('Access-Control-Allow-Origin', '*');
+        response.header('Access-Control-Allow-Origin', 'http://www.wisdom.com.co');
+        response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+        response.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+        response.setHeader('Access-Control-Allow-Credentials', true);
+        response.send(200);
+    }
+    else {
+        response.sendStatus(404);
+        next();
+    }
+});
 
 app.get('/test', function(request, response){
     response.send("Hola wisdom this is the first one service !!You are welcome!!");
@@ -51,24 +71,6 @@ app.get('/', function (request,response) {
     response.redirect("/Wisdom/");
 });
 
-app.use(function (error, request, response, next) {
-
-    console.log(error);
-    if(error != null){
-        response.status(error.status).send(errorMessage(error.message, error.status));
-    }
-
-    if ('OPTIONS' == request.method) {
-        response.header('Access-Control-Allow-Origin', '*');
-        response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
-        response.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-        response.send(200);
-    }
-    else {
-        response.sendStatus(404);
-        next();
-    }
-});
 
 console.log("Preparing to start server");
 app.listen(process.env.PORT || 3000, function(){
