@@ -4,10 +4,13 @@ var MongoClient = require('mongodb').MongoClient;
 var app = express();
 var assert= require('assert');
 app.engine('html', engines.mustache);
+app.use(express.static("public"));
 app.set('view engine', 'html');
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+
     next();
 });
 

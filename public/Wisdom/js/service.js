@@ -80,8 +80,7 @@ function postTest (){
                         "method": "POST",
                         "headers": {
                             "content-type": "application/json",
-                            "cache-control": "no-cache",
-                            'Access-Control-Allow-Origin': '*'
+                            "cache-control": "no-cache"
                         },
                         "processData": false,
                         "data": JSON.stringify(info),
